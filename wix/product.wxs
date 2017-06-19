@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<Wix xmlns='http://schemas.microsoft.com/wix/2006/wi'>
+    <Product Name='Filebeat' Manufacturer='Elastic.co'
+        Id='811d4a70-a970-48d5-bdc6-c7e151fde420'
+        UpgradeCode='74e4e020-a19d-48a0-bd07-07a5ac922701'
+        Language='1033' Codepage='1252' Version='5.4.1'>
+    <Package Id='*' Keywords='Installer' Description="Filebeat Installer"
+        Comments='FileBeat is a product of Elastic.co' Manufacturer='Elastic.co'
+        InstallerVersion='200' Languages='1033' Compressed='yes' SummaryCodepage='1252' />
+        <!-- We do not have more than one medium (Floppy, CD, ...). Everything in one CAB  file. -->
+        <Media Id='1' Cabinet='media.cab' EmbedCab='yes' />
+
+<!-- Setup Directories -->
+        <Directory Id="TARGETDIR" Name="SourceDir">
+          <!-- We start building our directory structure here -->
+         <!-- "ProgramFiles64Folder" is a variable containing the absolute path. -->
+         <!-- For a list of folder variables, see: http://msdn.microsoft.com/en-us/library/aa372057%28VS.85%29.aspx -->
+         <Directory Id="ProgramFiles64Folder">
+           <Directory Id="INSTALLDIR" Name="Filebeat">
+             <Directory Id="MODULE" Name="module">
+             <Directory Id="SCRIPTS" Name="scripts">
+             </Directory>
+             </Directory>
+           </Directory>
+         </Directory>
+       </Directory>
+
+
+
+<!-- Install Features -->
+         <Feature Id="MainApplication" Title="FileBeat" Level="1">
+           <ComponentGroupRef Id="MainComponentGroup" />
+         </Feature>
+
+
+<!-- Execute Custom Action -->
+
+<InstallExecuteSequence>
+    <Custom Action="RegisterPSCmd" After="CostInitialize">
+      <![CDATA[NOT Installed]]>
+    </Custom>
+
+    <Custom Action="RegisterPowerShellProperty" After="InstallFiles">
+      NOT Installed
+    </Custom>
+
+    <Custom Action='RegisterPSCmdUninstall' Before='CostInitialize'>
+      (NOT UPGRADINGPRODUCTCODE) AND (REMOVE="ALL")
+    </Custom>
+
+    <Custom Action='RegisterPowerShellPropertyUninstall' Before='RemoveFiles'>
+      (NOT UPGRADINGPRODUCTCODE) AND (REMOVE="ALL")
+    </Custom>
+
+  </InstallExecuteSequence>
+
+    </Product>
+  </Wix>
