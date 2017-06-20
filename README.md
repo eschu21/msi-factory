@@ -3,8 +3,12 @@
 ### Description
 This pipeline uses a windowsservercore docker container to input the WiX XML and powershell script for execution.
 
+Toolset
+WiX
+Powershell
+Docker
 
-### Usage
+### Configuration
 The directory must be setup with the following structure.
 
 C:\WIX-PROJECT
@@ -16,6 +20,8 @@ C:\WIX-PROJECT
 Files to be installed are in [PACKAGE]
 
 any predefined WiX XML objects are to be in ```stage```
+
+The docker container can be built with ```docker build msi-factory .``` when in the current working directory contains the ```Dockerfile```
 
 
 ### How it Works
