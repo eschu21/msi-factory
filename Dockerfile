@@ -15,7 +15,7 @@ RUN ["powershell","New-Item","c:\\wix -type Directory"]
 RUN ["powershell","New-Item","c:\\pkg -type Directory"]
 
 # Set to Powershell execution policy
-RUN ["powershell","Set-ExecutionPolicy Unrestricted"]
+RUN ["powershell","Set-ExecutionPolicy Bypass"]
 
 # Pull WiX Toolset
 RUN ["powershell","Start-BitsTransfer", "-Source http://wixtoolset.org/downloads/v3.11.0.1528/wix311-binaries.zip","-Destination C:\\wix\\"]
