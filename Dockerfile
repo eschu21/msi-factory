@@ -1,4 +1,4 @@
-## 
+## Dockerfile to create a WiX worker
 
 # Indicates that the windowsservercore image will be used as the base image.
 FROM microsoft/windowsservercore
