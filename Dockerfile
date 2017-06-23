@@ -17,11 +17,8 @@ RUN ["powershell","New-Item","c:\\pkg -type Directory"]
 # Pull WiX Toolset
 RUN ["powershell","Start-BitsTransfer", "-Source http://wixtoolset.org/downloads/v3.11.0.1528/wix311-binaries.zip","-Destination C:\\wix\\"]
 
-# Unzip that shit
+# Unzip the WiX binaries
 RUN ["powershell","Expand-Archive C:\\wix\\wix311-binaries.zip c:\\wix"]
-
-# Add WiX bin directory to environment
-#RUN ["powershell","$oldpath = (Get-ItemProperty -Path `Registry::HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Control\\Session Manager\\Environment' -Name PATH).path ; $newpath = "$oldpath;c:\\wix\\bin" ;  Set-ItemProperty -Path `Registry::HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Control\\Session Manager\\Environment' -Name PATH -Value $newPath]
 
 # Set Path
 #["powershell","[Environment]::SetEnvironmentVariable( "Path", $env:Path + ";c:\\wix", [System.EnvironmentVariableTarget]::Machine )"]
