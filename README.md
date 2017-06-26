@@ -11,10 +11,13 @@ Docker
 ### Configuration
 The directory must be setup with the following structure.
 
-  C:\
-  └───pkg
+    C:\
+    └───pkg
+
       ├───output
+
       ├───[PACKAGE]
+      
       └───stage
 
 Source files to be installed are in [PACKAGE]
