@@ -15,9 +15,7 @@ C:\
 └───pkg
 
     ├───output
-
     ├───[PACKAGE]
-    
     └───stage
 
 Source files to be installed are in [PACKAGE]
