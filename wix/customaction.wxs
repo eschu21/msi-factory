@@ -18,12 +18,12 @@
  <!--Define the CustomAction for running the PowerShell script-->
  <CustomAction Id="RegisterPSCmd"
           Property="RegisterPowerShellProperty"
-          Value="[POWERSHELL] -NoLogo -NonInteractive -InputFormat None -NoProfile -File &quote;[INSTALLDIR]install-service-filebeat.ps1&quote;"
+          Value="&quot;[POWERSHELLEXE]&quot; -NoLogo -NonInteractive -InputFormat None -NoProfile -ExecutionPolicy Bypass -File &quot;[INSTALLDIR]install-service-filebeat.ps1&quot;"
           Execute="immediate" />
 
 <CustomAction Id="RegisterPSCmdUninstall"
           Property="RegisterPowerShellPropertyUninstall"
-          Value="[POWERSHELL] -NoLogo -NonInteractive -InputFormat None -NoProfile -File &quote;[INSTALLDIR]uninstall-service-filebeat.ps1&quote;"
+          Value="&quot;[POWERSHELLEXE]&quot; -NoLogo -NonInteractive -InputFormat None -NoProfile -File &quote;[INSTALLDIR]uninstall-service-filebeat.ps1&quote;"
           Execute="immediate" />
 
 <CustomAction Id="RegisterPowerShellProperty"
