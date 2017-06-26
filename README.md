@@ -13,9 +13,9 @@ The directory must be setup with the following structure.
 
   C:\
   └───pkg
-    ├───output
-    ├───[PACKAGE]
-    └───stage
+      ├───output
+      ├───[PACKAGE]
+      └───stage
 
 Source files to be installed are in [PACKAGE]
 
