@@ -23,7 +23,7 @@
 
 <CustomAction Id="RegisterPSCmdUninstall"
           Property="RegisterPowerShellPropertyUninstall"
-          Value="&quot;[POWERSHELLEXE]&quot; -NoLogo -NonInteractive -InputFormat None -NoProfile -File &quote;[INSTALLDIR]uninstall-service-filebeat.ps1&quote;"
+          Value="&quot;[POWERSHELLEXE]&quot; -NoLogo -NonInteractive -InputFormat None -NoProfile -ExecutionPolicy Bypass -File &quote;[INSTALLDIR]uninstall-service-filebeat.ps1&quote;"
           Execute="immediate" />
 
 <CustomAction Id="RegisterPowerShellProperty"
