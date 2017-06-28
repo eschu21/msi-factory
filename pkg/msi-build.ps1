@@ -3,8 +3,7 @@
 ## Variables ##
 
 # Source Dir for files to be enumerated into MSI #
-$SRC_DIR="c:\pkg\filebeat-5.4.1-windows-x86_64"
-
+$SRC_DIR="c:\pkg\filebeat"
 
 # Name of our Application #
 $APP_NAME="Filebeat"
